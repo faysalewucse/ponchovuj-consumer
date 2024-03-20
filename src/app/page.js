@@ -1,11 +1,11 @@
-import { Button } from "keep-react";
+import { TopNavbar } from "@/components/top-nav/TopNavbar";
 
 export default function Home() {
   return (
-    <div>
-      <Button size="sm" className="bg-indigo-400 rounded-sm">
-        Login
-      </Button>
-    </div>
+    <main>
+      <div className="border-b">
+        <TopNavbar />
+      </div>
+    </main>
   );
 }
