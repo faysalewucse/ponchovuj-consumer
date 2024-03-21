@@ -8,7 +8,7 @@ import { FaArrowDownLong } from "react-icons/fa6";
 export const TopNavbar = () => {
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex justify-between py-2">
+      <div className="flex justify-between py-3">
         <div className="flex gap-x-7">
           <BrandMail />
           <div className="flex items-center gap-x-2 text-sm">
@@ -20,7 +20,7 @@ export const TopNavbar = () => {
         <div className="flex gap-x-7">
           <Dropdown
             action={
-              <button className="flex items-center text-black text-sm p-0">
+              <button className="flex items-center text-black font-medium text-sm p-0">
                 English <FaArrowDownLong color="red" />
               </button>
             }

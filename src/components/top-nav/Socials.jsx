@@ -9,7 +9,7 @@ import {
 
 export const Socials = () => {
   return (
-    <div className="flex items-center gap-x-2">
+    <div className="flex items-center gap-x-4">
       <Link href="https://www.facebook.com" target="_blank">
         {" "}
         <FaFacebookF />
