@@ -1,5 +1,6 @@
-import { TopNavbar } from "@/components/top-nav/TopNavbar";
-import { TopSecondNavbar } from "@/components/top-second-nav/TopSecondNavbar";
+import MainNavbar from "@/components/navbars/MainNavbar";
+import { TopNavbar } from "@/components/navbars/top-nav/TopNavbar";
+import { TopSecondNavbar } from "@/components/navbars/top-second-nav/TopSecondNavbar";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <TopNavbar />
       </div>
       <TopSecondNavbar />
+      <MainNavbar />
     </main>
   );
 }
