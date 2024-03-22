@@ -8,6 +8,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { LiaUserAltSolid } from "react-icons/lia";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import { IoClose } from "react-icons/io5";
 
 export const TopSecondNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,10 +70,15 @@ export const TopSecondNavbar = () => {
         direction="right"
         className="p-10"
         style={{
-          width: "500px",
+          width: "430px",
         }}
       >
-        <div>TODO: Cart Design</div>
+        <div className="flex justify-between pb-5 border-b">
+          <p className="font-semibold text-lg">Cart</p>
+          <button onClick={() => setIsOpen(false)}>
+            <IoClose size={25} />
+          </button>
+        </div>
       </Drawer>
     </nav>
   );

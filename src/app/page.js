@@ -1,3 +1,5 @@
+import { CartItemCard } from "@/components/cards/CartItemCard";
+import { ProductCard } from "@/components/cards/ProductCard";
 import MainNavbar from "@/components/navbars/MainNavbar";
 import { TopNavbar } from "@/components/navbars/top-nav/TopNavbar";
 import { TopSecondNavbar } from "@/components/navbars/top-second-nav/TopSecondNavbar";
@@ -10,6 +12,14 @@ export default function Home() {
       </div>
       <TopSecondNavbar />
       <MainNavbar />
+
+      <div className="grid grid-cols-4 gap-10 m-10">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
     </main>
   );
 }
