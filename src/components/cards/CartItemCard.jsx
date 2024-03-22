@@ -11,7 +11,7 @@ export const CartItemCard = ({ item }) => {
   return (
     <div className="max-w-6xl mx-auto mt-10">
       <div className="flex items-center justify-between font-medium border p-3">
-        <Image width={150} src={item.Image} />
+        <Image width={100} src={item.image} />
         <p className=" hover:text-primary transition-300 cursor-pointer">
           {item.name}
         </p>

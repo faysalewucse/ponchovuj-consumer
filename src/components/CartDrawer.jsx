@@ -1,10 +1,9 @@
 import { IoClose } from "react-icons/io5";
 import Drawer from "react-modern-drawer";
 import { DrawerCartItemCard } from "./cards/DrawerCartItemCard";
-import img from "@/assets/product_1.webp";
+import { mockItem } from "@/constant";
 
 const CartDrawer = ({ isOpen, toggleDrawer, setIsOpen }) => {
-  const item = { name: "Cart Item", image: img, price: 45 };
   return (
     <Drawer
       open={isOpen}
@@ -24,7 +23,7 @@ const CartDrawer = ({ isOpen, toggleDrawer, setIsOpen }) => {
       </div>
 
       {/* Cart Drawer Items */}
-      <DrawerCartItemCard item={item} />
+      <DrawerCartItemCard item={mockItem} />
     </Drawer>
   );
 };
