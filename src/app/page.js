@@ -15,10 +15,6 @@ export default function Home() {
 
       <div className="grid grid-cols-4 gap-10 m-10">
         <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
       </div>
     </main>
   );

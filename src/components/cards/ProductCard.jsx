@@ -1,5 +1,5 @@
 import Image from "next/image";
-import img from "../../../public/product_1.webp";
+import img from "@/assets/product_1.webp";
 
 export const ProductCard = ({ item }) => {
   return (

@@ -6,9 +6,8 @@ import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { LiaUserAltSolid } from "react-icons/lia";
-import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { IoClose } from "react-icons/io5";
+import CartDrawer from "@/components/CartDrawer";
 
 export const TopSecondNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,22 +63,11 @@ export const TopSecondNavbar = () => {
         <p className="font-bold text-primary text-lg">৳ 3900.0</p>
       </div>
 
-      <Drawer
-        open={isOpen}
-        onClose={toggleDrawer}
-        direction="right"
-        className="p-10"
-        style={{
-          width: "430px",
-        }}
-      >
-        <div className="flex justify-between pb-5 border-b">
-          <p className="font-semibold text-lg">Cart</p>
-          <button onClick={() => setIsOpen(false)}>
-            <IoClose size={25} />
-          </button>
-        </div>
-      </Drawer>
+      <CartDrawer
+        isOpen={isOpen}
+        toggleDrawer={toggleDrawer}
+        setIsOpen={setIsOpen}
+      />
     </nav>
   );
 };
