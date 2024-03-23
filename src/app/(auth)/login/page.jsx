@@ -27,7 +27,7 @@ const LoginPage = () => {
           </h1>
           <p className="mb-5">Please Sign in to your account</p>
 
-          <div className="flex gap-5 my-5">
+          <div className="flex justify-center gap-5 my-5">
             <SocialLoginButton
               text={"Sign in with Google"}
               icon={<FcGoogle />}
@@ -42,9 +42,19 @@ const LoginPage = () => {
             or sign in with
             <hr className="flex-1" />
           </div>
-          <TextFieldWithLabel label={"Phone Number"} />
-          <TextFieldWithLabel label={"Password"} />
-          <div className="flex justify-between mb-10">
+          <div className="flex flex-col gap-5">
+            <TextFieldWithLabel
+              label={"Phone Number"}
+              placeholder={"Enter phone number"}
+              numberField={true}
+            />
+            <TextFieldWithLabel
+              label={"Password"}
+              placeholder={"Enter password"}
+              passwordField={true}
+            />
+          </div>
+          <div className="flex justify-between mt-5 mb-10">
             <fieldset className="flex items-center gap-2">
               <Checkbox checked={false} id="checkbox" />
               <Label htmlFor="checkbox">Keep me logged in</Label>

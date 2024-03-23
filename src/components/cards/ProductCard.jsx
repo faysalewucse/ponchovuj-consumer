@@ -1,5 +1,6 @@
 import Image from "next/image";
 import img from "@/assets/product_1.webp";
+import Link from "next/link";
 
 export const ProductCard = ({ item }) => {
   return (
@@ -11,9 +12,12 @@ export const ProductCard = ({ item }) => {
         />
       </div>
       <div className="flex flex-col items-center font-semibold gap-2">
-        <p className=" group-hover:text-primary transition-300">
+        <Link
+          href={"/product/1"}
+          className=" group-hover:text-primary transition-300"
+        >
           {"Complementary Product-1"}
-        </p>
+        </Link>
         <p>${"23"}</p>
       </div>
     </div>

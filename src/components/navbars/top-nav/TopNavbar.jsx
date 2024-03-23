@@ -2,10 +2,10 @@
 import { TextWithIcon } from "./TextWithIcon";
 import { Socials } from "./Socials";
 import { IoLocationOutline } from "react-icons/io5";
-import Select from "react-select";
 import { useState } from "react";
 import { TfiEmail } from "react-icons/tfi";
 import Container from "@/components/shared/Container";
+import { Select, SelectItem } from "@nextui-org/react";
 
 export const TopNavbar = () => {
   const [selectedOption, setSelectedOption] = useState("en");
@@ -32,23 +32,18 @@ export const TopNavbar = () => {
 
         <div className="flex gap-x-7">
           <Select
-            defaultValue="English"
-            onChange={handleChange}
-            options={options}
-            isSearchable={false}
-            styles={{
-              control: (base) => ({
-                ...base,
-                fontSize: "14px",
-                border: "1px solid #D4D4D4",
-                boxShadow: "none",
-                "&:hover": {
-                  border: "1px solid #D4D4D4",
-                },
-              }),
-            }}
-            className="w-32"
-          />
+            size="sm"
+            color="default"
+            label=""
+            defaultSelectedKeys={["en"]}
+            className="w-28"
+          >
+            {options.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </Select>
           <Socials />
         </div>
       </div>

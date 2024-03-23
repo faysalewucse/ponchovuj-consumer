@@ -1,18 +1,15 @@
-import { Button } from "keep-react";
+"use client";
 
-const PrimaryButton = ({ label, loading, extraClass, size = "sm" }) => {
+import { Button } from "@nextui-org/react";
+
+const PrimaryButton = ({ label, loading, extraClass, size = "lg" }) => {
   return (
-    <Button className={`bg-primary w-full rounded ${extraClass}`} size={size}>
-      {loading ? (
-        <div>
-          <span className="pr-2">
-            <Spinner color="white" size={"md"} />
-          </span>
-          Please wait...
-        </div>
-      ) : (
-        <span>{label}</span>
-      )}
+    <Button
+      isLoading={loading}
+      className={`bg-primary w-full rounded text-white ${extraClass}`}
+      size={size}
+    >
+      {!loading ? label : "Please wait..."}
     </Button>
   );
 };
