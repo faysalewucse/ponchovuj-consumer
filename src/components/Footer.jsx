@@ -9,7 +9,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { Socials } from "./navbars/top-nav/Socials";
 import Link from "next/link";
 import { Input } from "keep-react";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "./buttons/PrimaryButton";
 
 const Footer = () => {
   return (
@@ -34,7 +34,11 @@ const Footer = () => {
           >
             <h2 className="font-semibold">{footerItem.header}</h2>
             {footerItem.links.map((link) => (
-              <Link key={link.title} href={link.url}>
+              <Link
+                className="hover:text-primary transition-300"
+                key={link.title}
+                href={link.url}
+              >
                 {link.title}
               </Link>
             ))}

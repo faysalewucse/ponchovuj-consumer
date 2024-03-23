@@ -1,7 +1,7 @@
 import React from "react";
 import { TopNavbar } from "./top-nav/TopNavbar";
-import { TopSecondNavbar } from "./top-second-nav/TopSecondNavbar";
 import MainNavbar from "./MainNavbar";
+import { TopSecondNavbar } from "./TopSecondNavbar";
 
 const Navbar = () => {
   return (

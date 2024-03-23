@@ -1,13 +1,13 @@
 "use client";
 import { Dropdown, Input } from "keep-react";
-import Brand from "../../Brand";
 import { PiPhoneCallLight } from "react-icons/pi";
 import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { LiaUserAltSolid } from "react-icons/lia";
+import { FiUser } from "react-icons/fi";
 import "react-modern-drawer/dist/index.css";
 import CartDrawer from "@/components/CartDrawer";
+import Brand from "../Brand";
 
 export const TopSecondNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,7 @@ export const TopSecondNavbar = () => {
       <div className="flex gap-8 items-center">
         <Dropdown
           placement="bottom-end"
-          action={<LiaUserAltSolid className="text-4xl text-black" />}
+          action={<FiUser className="text-3xl text-black" />}
           actionClassName="p-0 border-none"
         >
           <Dropdown.List>
@@ -49,18 +49,20 @@ export const TopSecondNavbar = () => {
             <Dropdown.Item>Login</Dropdown.Item>
           </Dropdown.List>
         </Dropdown>
-        <div className="relative">
-          <HiOutlineShoppingBag
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-3xl cursor-pointer"
-          />
+        <div className="flex items-center gap-5">
+          <div className="relative">
+            <HiOutlineShoppingBag
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-3xl cursor-pointer"
+            />
 
-          <div className="absolute -top-2 -right-2 bg-primary text-white flex items-center justify-center rounded-full w-5 h-5 text-sm">
-            {7}
+            <div className="absolute -top-2 -right-2 bg-primary text-white flex items-center justify-center rounded-full w-5 h-5 text-sm">
+              {7}
+            </div>
           </div>
-        </div>
 
-        <p className="font-bold text-primary text-lg">৳ 3900.0</p>
+          <p className="font-bold text-primary text-lg">৳ 3900.0</p>
+        </div>
       </div>
 
       <CartDrawer
