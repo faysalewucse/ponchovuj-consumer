@@ -16,7 +16,7 @@ export const TopSecondNavbar = () => {
   };
 
   return (
-    <nav className="z-0 max-w-6xl mx-auto p-5 flex items-center justify-between">
+    <nav className="z-0 max-w-7xl mx-auto p-5 flex items-center justify-between">
       <Brand />
       <div className="lg:flex items-center gap-x-2 hidden">
         <PiPhoneCallLight className="text-4xl text-" />
