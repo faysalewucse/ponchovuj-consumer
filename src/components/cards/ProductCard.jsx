@@ -6,9 +6,8 @@ export const ProductCard = ({ item }) => {
     <div className="group flex flex-col gap-y-3 cursor-pointer ">
       <div className=" overflow-hidden ">
         <Image
-          className="group-hover:scale-110 transition-300"
+          className="group-hover:scale-110 transition-300 object-cover"
           src={img}
-          objectFit="cover"
         />
       </div>
       <div className="flex flex-col items-center font-semibold gap-2">

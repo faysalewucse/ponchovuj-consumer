@@ -6,3 +6,7 @@
 .transition-300 {
   @apply transition-all duration-300;
 }
+
+input:focus-visible {
+  @apply ring-offset-0 ring-0 !important;
+}

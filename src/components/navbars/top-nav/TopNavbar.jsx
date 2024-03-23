@@ -5,6 +5,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import Select from "react-select";
 import { useState } from "react";
 import { TfiEmail } from "react-icons/tfi";
+import Container from "@/components/shared/Container";
 
 export const TopNavbar = () => {
   const [selectedOption, setSelectedOption] = useState("en");
@@ -19,7 +20,7 @@ export const TopNavbar = () => {
   };
 
   return (
-    <div className="z-10 max-w-6xl mx-auto">
+    <Container>
       <div className="flex justify-between px-5 py-1">
         <div className="flex gap-x-7">
           <TextWithIcon text={"ponchovuj@gmail.com"} icon={<TfiEmail />} />
@@ -51,6 +52,6 @@ export const TopNavbar = () => {
           <Socials />
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
