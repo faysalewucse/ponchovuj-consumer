@@ -1,8 +1,8 @@
 "use client";
 import Container from "@/components/shared/Container";
-import Image from "next/image";
-import img from "@/assets/product_1.webp";
-import { FaArrowLeft, FaArrowRight, FaRegEye, FaStar } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight, FaRegEye } from "react-icons/fa6";
+import { TbEyeClosed } from "react-icons/tb";
+
 import {
   galleryImages,
   productSize,
@@ -11,6 +11,8 @@ import {
 } from "@/constant";
 import { useState } from "react";
 import { Tooltip } from "keep-react";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const ProductDetails = ({ params }) => {
   // state for selecting gallery Image
@@ -92,13 +94,11 @@ const ProductDetails = ({ params }) => {
       </div>
       <div>
         <div className="flex flex-col gap-y-3">
-          <p className="flex items-center text-yellow-500 gap-x-1">
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />1 review
-          </p>
+          <div className="flex items-center gap-2">
+            <Rating readOnly style={{ maxWidth: 100 }} value={2} />
+            <span className="text-star">{1} review</span>
+          </div>
+
           <p className="text-2xl font-semibold">{"Product Name"}</p>
           <p className="text-3xl font-semibold flex items-center gap-2">
             <span className="text-2xl text-gray-400 line-through">$56</span>
@@ -114,7 +114,7 @@ const ProductDetails = ({ params }) => {
           </p>
           <hr />
           <p className="flex items-center gap-2 py-4">
-            <FaRegEye size={25} />
+            <TbEyeClosed size={25} />
             22 people are viewing this right now.
           </p>
         </div>
