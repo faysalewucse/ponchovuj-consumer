@@ -1,7 +1,16 @@
 "use client";
 import Container from "@/components/shared/Container";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { TbEyeClosed } from "react-icons/tb";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCartShopping,
+  FaFacebook,
+  FaPinterest,
+  FaTwitter,
+} from "react-icons/fa6";
+import { TbEyeClosed, TbTruckDelivery } from "react-icons/tb";
+import { CiHeart } from "react-icons/ci";
+import { TfiEmail } from "react-icons/tfi";
 import {
   galleryImages,
   productSize,
@@ -14,6 +23,9 @@ import "@smastrom/react-rating/style.css";
 import { Selector } from "@/components/product-details/Selector";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { Counter } from "@/components/Counter";
+import PrimaryButton from "@/components/buttons/PrimaryButton";
+import { TextWithIcon } from "@/components/navbars/top-nav/TextWithIcon";
 
 //swiper js styles
 import "swiper/css";
@@ -23,9 +35,10 @@ import "swiper/css/thumbs";
 
 const ProductDetails = ({ params }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
   return (
-    <Container className="grid grid-cols-1 md:grid-cols-2 gap-8 py-10 px-3">
+    <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 px-3">
       <div className="relative">
         <Swiper
           spaceBetween={10}
@@ -44,7 +57,7 @@ const ProductDetails = ({ params }) => {
               style={{ height: "500px", objectFit: "cover" }}
               className="w-auto"
             >
-              <img src={images.url} />
+              <img src={images.url} alt={`Image ${images.image}`} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -69,7 +82,7 @@ const ProductDetails = ({ params }) => {
               key={images.image}
               style={{ width: "135px", height: "135px", objectFit: "cover" }}
             >
-              <img src={images.url} className="" />
+              <img src={images.url} alt={`Thumbnail ${images.image}`} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -150,6 +163,47 @@ const ProductDetails = ({ params }) => {
             }}
           />
         </div>
+        <hr />
+        <div className="flex items-center gap-x-5 py-4">
+          <Counter quantity={quantity} setQuantity={setQuantity} />
+          <PrimaryButton
+            label={"Add to cart"}
+            extraClass={"rounded-none py-7"}
+          />
+          <PrimaryButton
+            label={"Buy it now"}
+            extraClass={"rounded-none py-7 bg-black hover:bg-primary"}
+          />
+        </div>
+        <div className="flex items-center gap-x-10 font-medium pb-4">
+          <TextWithIcon icon={<CiHeart />} text={"Add to wishlist"} />
+          <TextWithIcon text={"compare"} />
+          <TextWithIcon icon={<TfiEmail />} text={"Ask about this product"} />
+        </div>
+        <hr />
+        <div className="py-4">
+          <p className="flex items-center gap-3">
+            <TbTruckDelivery size={30} />
+            <span>Estimated Delivery Date :</span>
+            <span className="font-medium">27 - 29 March, 2024.</span>
+          </p>
+
+          <p className="font-semibold mt-4">Return rules summary</p>
+          <ul className="flex flex-col gap-y-1 list-disc pl-4 pt-4">
+            <li>Returns accepted for 30 days</li>
+            <li>Free return shipping</li>
+            <li>No restocking fee</li>
+            <li>No final sale items</li>
+          </ul>
+        </div>
+        <hr />
+        <div className="flex items-center gap-5 text-black py-4">
+          <p>Share:</p>
+          <TextWithIcon icon={<FaFacebook />} text={"Facebook"} />
+          <TextWithIcon icon={<FaTwitter />} text={"X"} />
+          <TextWithIcon icon={<FaPinterest />} text={"Pinterest"} />
+        </div>
+        <hr />
       </div>
     </Container>
   );
