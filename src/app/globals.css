@@ -10,3 +10,43 @@
 input:focus-visible {
   @apply ring-offset-0 ring-0 !important;
 }
+
+.swiper-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.swiper-slide-thumb-active {
+  border: 1px solid rgba(255, 0, 0, 0.573);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: static !important;
+  top: 40rem !important;
+  border: 2px solid rgba(128, 128, 128, 0.392) !important;
+  color: black !important;
+  width: 30px !important;
+  height: 35px !important;
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.swiper-button-prev::after {
+  content: '' !important;
+}
+
+.swiper-button-next {
+  margin-left: 10px !important;
+}
+
+.swiper-button-next::after {
+  content: '' !important;
+
+}
