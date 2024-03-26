@@ -43,6 +43,33 @@ export const productColor = [
   { color: "Pink", code: "#FFC0CB" },
 ];
 
+export const tabs = [
+  {
+    id: "description",
+    label: "Description",
+    content:
+      "ut I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.",
+  },
+  {
+    id: "reviews",
+    label: "Reviews",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    id: "policy",
+    label: "Shipping Policy",
+    content:
+      "Orders can be placed on our website. Once an order is placed, you will receive a confirmation email with details of your order. We accept payments via credit card, debit card, PayPal, and other secure payment methods. All payments are processed securely. We offer standard and expedited shipping options. Shipping costs and delivery times may vary depending on the destination and selected shipping method. Customers will receive a tracking number once their order has shipped. We accept returns and exchanges within 30 days of purchase. Items must be unused and in their original packaging. Customers are responsible for return shipping costs unless the item is defective or damaged. Refunds will be issued to the original payment method within 3-5 business days after we receive the returned item. Shipping costs are non-refundable. Our customer support team is available to assist you with any questions or concerns. Please contact us via email or phone for prompt assistance.",
+  },
+  {
+    id: "size",
+    label: "Size Chart",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+];
+
 export const footerLinks = [
   {
     header: "Company",

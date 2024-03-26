@@ -16,7 +16,7 @@ export const Selector = ({
   };
 
   return (
-    <div className="flex items-center gap-x-3">
+    <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
       <p className="font-semibold">{selectorName}:</p>
       {dataType === "color"
         ? selectedItems.map((color, i) => (
