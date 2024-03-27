@@ -1,10 +1,15 @@
+"use client";
 import { Tabs, Tab } from "@nextui-org/react";
-import { FaRegStar } from "react-icons/fa";
 import { Rating, Star } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import PrimaryButton from "../buttons/PrimaryButton";
+import { useState } from "react";
+import { Review } from "./Review";
 
 export const DetailTabs = ({ tabItems }) => {
+  const [isReviewOpen, setReviewOpen] = useState(false);
+  console.log(isReviewOpen);
+
   return (
     <Tabs
       variant="underlined"
@@ -24,7 +29,7 @@ export const DetailTabs = ({ tabItems }) => {
           {tabs.id === "reviews" ? (
             <div className="flex flex-col items-center justify-center">
               <h1 className="text-2xl font-semibold">Customer Reviews</h1>
-              <div className="flex items-center gap-5 w-2/4 mx-auto">
+              <div className="grid grid-cols-2 gap-10 mt-10">
                 <div>
                   <Rating
                     readOnly
@@ -40,10 +45,12 @@ export const DetailTabs = ({ tabItems }) => {
                   <p>Be the first to write a review</p>
                 </div>
                 <PrimaryButton
+                  onClick={() => setReviewOpen(!isReviewOpen)}
                   label={"Write a review"}
                   extraClass={"font-bold text-white rounded-none"}
                 />
               </div>
+              {isReviewOpen && <Review />}
             </div>
           ) : (
             <p className="pt-5">{tabs.content}</p>

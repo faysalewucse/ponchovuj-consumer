@@ -70,6 +70,34 @@ export const tabs = [
   },
 ];
 
+export const faqs = [
+  {
+    title: "How can I place an order?",
+    content:
+      "To place an order, simply visit our website and browse our products. Once you find the items you'd like to purchase, add them to your cart and proceed to checkout. Follow the prompts to enter your shipping and payment information, and confirm your order. You will receive a confirmation email once your order is placed.",
+  },
+  {
+    title: "What payment methods do you accept?",
+    content:
+      "We accept payments via credit card, debit card, PayPal, and other secure payment methods. All payments are processed securely to ensure the safety of your personal information.",
+  },
+  {
+    title: "How long will it take to receive my order?",
+    content:
+      "Shipping times vary depending on your location and the shipping method selected at checkout. We offer both standard and expedited shipping options. You can track the status of your order using the tracking number provided in your shipping confirmation email.",
+  },
+  {
+    title: "Do you offer international shipping?",
+    content:
+      "Yes, we offer international shipping to select countries. Shipping rates and delivery times may vary depending on the destination. Please note that customers are responsible for any customs duties or taxes that may apply to international orders.",
+  },
+  {
+    title: "Can I cancel or modify my order?",
+    content:
+      "We strive to process orders quickly to ensure prompt delivery. Once an order is placed, it may not be possible to cancel or modify it. If you need to make changes to your order, please contact our customer support team as soon as possible, and we will do our best to accommodate your request.",
+  },
+];
+
 export const footerLinks = [
   {
     header: "Company",
