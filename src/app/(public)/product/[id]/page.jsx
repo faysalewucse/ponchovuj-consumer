@@ -27,6 +27,7 @@ import PrimaryButton from "@/components/buttons/PrimaryButton";
 import { TextWithIcon } from "@/components/navbars/top-nav/TextWithIcon";
 import { Gallery } from "@/components/product-details/Gallery";
 import { DetailTabs } from "@/components/product-details/DetailTabs";
+import { FAQ } from "@/components/product-details/FAQ";
 
 const ProductDetails = ({ params }) => {
   const [quantity, setQuantity] = useState(1);
@@ -46,8 +47,8 @@ const ProductDetails = ({ params }) => {
 
             <p className="text-2xl font-semibold">{"Product Name"}</p>
             <p className="text-3xl font-semibold flex items-center gap-2">
-              <span className="text-2xl text-gray-400 line-through">$56</span>
-              <span className="text-primary">$36</span>{" "}
+              <span className="text-2xl text-gray-400 line-through">${56}</span>
+              <span className="text-primary">${36}</span>{" "}
               <span className="inline font-medium text-sm bg-gray-100 p-1">
                 save -33%
               </span>
@@ -177,6 +178,10 @@ const ProductDetails = ({ params }) => {
       </div>
       <div className=" pt-20">
         <DetailTabs tabItems={tabs} />
+      </div>
+
+      <div className=" pt-20">
+        <FAQ />
       </div>
     </Container>
   );
