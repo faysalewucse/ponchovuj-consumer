@@ -1,15 +1,27 @@
 import Image from "next/image";
 import img from "@/assets/product_1.webp";
 import Link from "next/link";
+import { FaRegEye, FaShoppingCart, FaRegHeart } from "react-icons/fa";
 
 export const ProductCard = ({ item }) => {
   return (
     <div className="group flex flex-col gap-y-3 cursor-pointer ">
-      <div className=" overflow-hidden ">
+      <div className="relative overflow-hidden ">
         <Image
           className="group-hover:scale-110 transition-300 object-cover"
           src={img}
         />
+        <div className="absolute group-hover:top-3/4 top-96 flex items-center justify-between gap-3 transition-300 px-10">
+          <button className="bg-white text-black hover:text-white hover:bg-primary transition-300 p-4">
+            <FaRegEye size={20} />
+          </button>
+          <button className="bg-white text-black hover:text-white hover:bg-primary transition-300 p-4">
+            <FaShoppingCart size={20} />
+          </button>
+          <button className="bg-white text-black hover:text-white hover:bg-primary transition-300 p-4">
+            <FaRegHeart size={20} />
+          </button>
+        </div>
       </div>
       <div className="flex flex-col items-center font-semibold gap-2">
         <Link
