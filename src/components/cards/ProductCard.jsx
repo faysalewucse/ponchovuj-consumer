@@ -30,7 +30,7 @@ export const ProductCard = ({ item }) => {
         >
           {"Complementary Product-1"}
         </Link>
-        <p>${"23"}</p>
+        <p className="font-normal">${"23"}</p>
       </div>
     </div>
   );

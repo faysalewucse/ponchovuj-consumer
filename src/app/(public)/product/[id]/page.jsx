@@ -15,6 +15,7 @@ import {
   galleryImages,
   productSize,
   productColor,
+  productStocks,
   productMaterial,
   tabs,
 } from "@/constant";
@@ -28,9 +29,15 @@ import { TextWithIcon } from "@/components/navbars/top-nav/TextWithIcon";
 import { Gallery } from "@/components/product-details/Gallery";
 import { DetailTabs } from "@/components/product-details/DetailTabs";
 import { FAQ } from "@/components/product-details/FAQ";
+import { AddedToCartModal } from "@/components/modal/AddedToCartModal";
 
 const ProductDetails = ({ params }) => {
   const [quantity, setQuantity] = useState(1);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleAddToCart = () => {
+    setModalOpen(true);
+  };
 
   return (
     <Container className="py-10 px-3 md:px-0">
@@ -65,19 +72,15 @@ const ProductDetails = ({ params }) => {
             </p>
           </div>
           <hr />
-          <div className="flex flex-col gap-y-3 py-4">
-            <p>
-              Availability: <span className="pl-4">{"stock"}</span>{" "}
-            </p>
-            <p>
-              SKU: <span className="pl-4">{"stock"}</span>{" "}
-            </p>
-            <p>
-              Vendor: <span className="pl-4">{"stock"}</span>{" "}
-            </p>
-            <p>
-              Type: <span className="pl-4">{"stock"}</span>{" "}
-            </p>
+          <div className="flex flex-col gap-y-2 py-4 w-44">
+            {productStocks.map((stock, i) => (
+              <ul key={i}>
+                <li className="flex justify-between">
+                  <span className="font-semibold">{stock}:</span>
+                  <span>stock</span>
+                </li>
+              </ul>
+            ))}
           </div>
           <hr />
           <div className=" flex flex-col gap-y-5 py-4">
@@ -112,6 +115,7 @@ const ProductDetails = ({ params }) => {
             <PrimaryButton
               label={"Add to cart"}
               extraClass={"rounded-none py-7"}
+              onClick={handleAddToCart}
             />
             <PrimaryButton
               label={"Buy it now"}
@@ -153,6 +157,7 @@ const ProductDetails = ({ params }) => {
           </div>
         </div>
       </div>
+      <AddedToCartModal isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
       <div className="flex flex-col md:flex-row justify-between gap-y-2 border px-7 py-10 ">
         <div className="flex items-center gap-5">
           <BsTruck size={50} className="text-black/75" />

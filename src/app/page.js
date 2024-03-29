@@ -2,6 +2,7 @@ import { BiSolidCategory } from "react-icons/bi";
 import Container from "@/components/shared/Container";
 import { ProductCard } from "@/components/cards/ProductCard";
 import { mockItem } from "@/constant";
+import { WishlistCard } from "@/components/cards/WishlistCard";
 
 export default function Home() {
   return (
@@ -16,8 +17,9 @@ export default function Home() {
             <CategoryTree categories={categories} />
           </div>
         </div>
-        <div className="grid grid-cols-4 flex-1">
+        <div className="grid grid-cols-4 gap-3 flex-1">
           <ProductCard item={mockItem} />
+          <WishlistCard />
         </div>
       </Container>
     </main>

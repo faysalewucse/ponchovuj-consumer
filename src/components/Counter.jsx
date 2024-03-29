@@ -19,7 +19,7 @@ export const Counter = ({ quantity, setQuantity }) => {
         type="text"
         value={quantity}
         onChange={handleCounter}
-        className="border text-xl font-medium py-3 px-4 w-16 outline-none"
+        className="border text-xl font-medium py-3 text-center w-16 outline-none"
       />
       <button
         onClick={() => setQuantity(quantity + 1)}
