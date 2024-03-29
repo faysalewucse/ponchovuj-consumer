@@ -17,7 +17,7 @@ export const Selector = ({
 
   return (
     <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
-      <p className="font-semibold">{selectorName}:</p>
+      <p className="font-semibold pr-3">{selectorName}:</p>
       {dataType === "color"
         ? selectedItems.map((color, i) => (
             <Tooltip

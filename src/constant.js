@@ -32,6 +32,8 @@ export const galleryImages = [
   },
 ];
 
+export const productStocks = ["Availability", "SKU", " Vendor", "Type"];
+
 export const productSize = ["S", "M", "L", "XL"];
 
 export const productMaterial = ["Metal", "Resin", "Leather", "Slag", "Fiber"];
