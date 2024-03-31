@@ -1,6 +1,6 @@
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { faqs } from "@/constant";
-import { FaPlus, FaMinus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 import { TbMinusVertical } from "react-icons/tb";
 
 export const FAQ = () => {
