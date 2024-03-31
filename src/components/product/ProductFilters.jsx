@@ -2,26 +2,50 @@
 import { Accordion, AccordionItem, Checkbox, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import PrimaryButton from "../buttons/PrimaryButton";
+import { IoClose } from "react-icons/io5";
 
 export const ProductFilters = () => {
   const [price, setPrice] = useState([100, 500]);
-  const [selectedOptions, setSelectedOptions] = useState({});
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const handleCheckboxChange = (title, option) => {
-    setSelectedOptions((prevSelectedOptions) => ({
-      ...prevSelectedOptions,
-      [title]: prevSelectedOptions[title]
-        ? prevSelectedOptions[title].includes(option)
-          ? prevSelectedOptions[title].filter((item) => item !== option)
-          : [...prevSelectedOptions[title], option]
-        : [option],
-    }));
+  const handleSelection = (option) => {
+    setSelectedOptions((prevSelectedOptions) => {
+      if (prevSelectedOptions.includes(option)) {
+        return prevSelectedOptions.filter((item) => item !== option);
+      } else {
+        return [...prevSelectedOptions, option];
+      }
+    });
   };
-
-  console.log(selectedOptions);
+  const handleRemoveOption = (optionToRemove) => {
+    setSelectedOptions((prevSelectedOptions) =>
+      prevSelectedOptions.filter((option) => option !== optionToRemove)
+    );
+  };
 
   return (
     <div>
+      <div className="flex gap-3 flex-wrap w-[300px] px-2">
+        {selectedOptions.map((option) => (
+          <div
+            key={option}
+            className="flex items-center gap-1 bg-gray-100 text-sm p-1"
+          >
+            <p>{option}</p>
+            <button onClick={() => handleRemoveOption(option)}>
+              <IoClose />
+            </button>
+          </div>
+        ))}
+        {selectedOptions.length !== 0 && (
+          <button
+            onClick={() => setSelectedOptions([])}
+            className="text-sm bg-primary p-1 text-white font-medium"
+          >
+            Clear all
+          </button>
+        )}
+      </div>
       <Accordion
         selectionMode="multiple"
         itemClasses={{
@@ -61,10 +85,8 @@ export const ProductFilters = () => {
                 <Checkbox
                   key={i}
                   radius="none"
-                  isSelected={selectedOptions[filter.title]?.[option]}
-                  onValueChange={() =>
-                    handleCheckboxChange(filter.title, option)
-                  }
+                  isSelected={selectedOptions.includes(option)}
+                  onValueChange={() => handleSelection(option)}
                 >
                   {option}
                 </Checkbox>

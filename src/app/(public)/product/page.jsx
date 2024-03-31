@@ -7,7 +7,7 @@ export default function page() {
   return (
     <main className="p-10">
       <Container className="flex gap-10">
-        <div className="px-10">
+        <div className="">
           <ProductFilters />
         </div>
         <div className="grid grid-cols-4 gap-3 flex-1">
