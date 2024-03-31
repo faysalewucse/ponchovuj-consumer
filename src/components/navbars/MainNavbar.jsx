@@ -8,7 +8,7 @@ const MainNavbar = () => {
     { label: "About", route: "/about", icon: <BsInfoSquare /> },
     {
       label: "Glasses",
-      route: "/about",
+      route: "/product",
       icon: <BsSunglasses className="text-3xl" />,
     },
   ];

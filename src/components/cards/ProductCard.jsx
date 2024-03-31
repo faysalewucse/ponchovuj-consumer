@@ -8,10 +8,10 @@ export const ProductCard = ({ item }) => {
     <div className="group flex flex-col gap-y-3 cursor-pointer ">
       <div className="relative overflow-hidden ">
         <Image
-          className="group-hover:scale-110 transition-300 object-cover w-auto"
+          className="group-hover:scale-110 transition-300 object-cover"
           src={img}
         />
-        <div className="absolute group-hover:top-3/4 top-96 flex items-center justify-center gap-3 transition-300 px-10">
+        <div className="absolute group-hover:top-3/4 top-96 flex justify-center gap-x-3 transition-300 px-9">
           <button className="bg-white text-black hover:text-white hover:bg-primary transition-300 p-4">
             <FaRegEye size={20} />
           </button>

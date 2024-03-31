@@ -1,5 +1,5 @@
 "use client";
-import { Dropdown, Input } from "keep-react";
+import { Input } from "keep-react";
 import { PiPhoneCallLight } from "react-icons/pi";
 import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";
@@ -8,6 +8,14 @@ import { FiUser } from "react-icons/fi";
 import "react-modern-drawer/dist/index.css";
 import CartDrawer from "@/components/CartDrawer";
 import Brand from "../Brand";
+import {
+  Badge,
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@nextui-org/react";
 
 export const TopSecondNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,29 +44,37 @@ export const TopSecondNavbar = () => {
         </button>
       </div>
       <div className="flex gap-8 items-center">
-        <Dropdown
-          placement="bottom-end"
-          action={<FiUser className="text-3xl text-black" />}
-          actionClassName="p-0 border-none"
-        >
-          <Dropdown.List>
-            <Dropdown.Item>My Account</Dropdown.Item>
-            <Dropdown.Item>Wishlist</Dropdown.Item>
-            <Dropdown.Item>Compare</Dropdown.Item>
-            <Dropdown.Item>Search</Dropdown.Item>
-            <Dropdown.Item>Login</Dropdown.Item>
-          </Dropdown.List>
+        <Dropdown classNames={{ content: "rounded-none" }}>
+          <DropdownTrigger>
+            <Button variant="flat" className="bg-transparent">
+              <FiUser size={30} />
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="dropdown-actions" variant="flat">
+            {dropdownItems.map((item) => (
+              <DropdownItem
+                key={item.label}
+                href={item.href}
+                className="rounded-none"
+              >
+                {item.label}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
         </Dropdown>
         <div className="flex items-center gap-5">
           <div className="relative">
-            <HiOutlineShoppingBag
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-3xl cursor-pointer"
-            />
-
-            <div className="absolute -top-2 -right-2 bg-primary text-white flex items-center justify-center rounded-full w-5 h-5 text-sm">
-              {7}
-            </div>
+            <Badge
+              content={"7"}
+              shape="circle"
+              className="bg-primary text-white"
+              placement="top-right"
+            >
+              <HiOutlineShoppingBag
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-3xl cursor-pointer"
+              />
+            </Badge>
           </div>
 
           <p className="font-bold text-primary text-lg">৳ 3900.0</p>
@@ -73,3 +89,11 @@ export const TopSecondNavbar = () => {
     </nav>
   );
 };
+
+const dropdownItems = [
+  { label: "My Account", href: "/account" },
+  { label: "Wishlist", href: "/wishlist" },
+  { label: "Compare", href: "/compare" },
+  { label: "Search", href: "/search" },
+  { label: "Login", href: "/login" },
+];
