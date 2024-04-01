@@ -6,7 +6,15 @@ import { IoClose } from "react-icons/io5";
 
 export const ProductFilters = () => {
   const [price, setPrice] = useState([100, 500]);
+  const [inputMinPrice, setInputMinPrice] = useState("100");
+  const [inputMaxPrice, setInputMaxPrice] = useState("500");
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handlePriceSliderChange = (newValue) => {
+    setPrice(newValue);
+    setInputMinPrice(newValue[0].toString());
+    setInputMaxPrice(newValue[1].toString());
+  };
 
   const handleSelection = (option) => {
     setSelectedOptions((prevSelectedOptions) => {
@@ -51,9 +59,9 @@ export const ProductFilters = () => {
         itemClasses={{
           base: "w-full",
           title: "font-semibold text-lg text-start",
-          trigger: "px-2 py-6 flex justify-between",
+          trigger: "px-2 py-3 flex justify-between",
           indicator: "font-semibold text-lg ml-16",
-          content: "flex flex-col pb-4 ",
+          content: "flex flex-col gap-y-3 pb-4 ",
         }}
       >
         {filters.map((filter) => (
@@ -66,17 +74,51 @@ export const ProductFilters = () => {
               <div className="px-4 space-y-3">
                 <Slider
                   label
-                  step={50}
+                  step={20}
                   size="sm"
                   maxValue={1000}
                   minValue={0}
                   value={price}
-                  onChange={setPrice}
+                  onChange={handlePriceSliderChange}
                   formatOptions={{ style: "currency", currency: "BDT" }}
                   classNames={{
                     base: "w-full",
                     label: "font-medium pb-2",
                   }}
+                  renderValue={({ children, ...props }) => (
+                    <output {...props}>
+                      <div>
+                        <span>Min:</span>
+                        <input
+                          type="number"
+                          aria-label="Minimum-Price"
+                          value={inputMinPrice}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (value !== "" && !isNaN(value)) {
+                              setInputMinPrice(value);
+                              setPrice([parseInt(value), price[1]]);
+                            }
+                          }}
+                          className="px-1 py-1 ml-2 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors border-medium border-transparent hover:border-primary focus:border-primary"
+                        />
+                        <span className="ml-5">Max:</span>
+                        <input
+                          type="number"
+                          aria-label="Maximum-Price"
+                          value={inputMaxPrice}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (value !== "" && !isNaN(value)) {
+                              setInputMaxPrice(value);
+                              setPrice([price[0], parseInt(value)]);
+                            }
+                          }}
+                          className="px-1 py-1 ml-2 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors border-medium border-transparent hover:border-primary focus:border-primary"
+                        />
+                      </div>
+                    </output>
+                  )}
                 />
                 <PrimaryButton label={"Filter"} extraClass={"rounded-none"} />
               </div>
