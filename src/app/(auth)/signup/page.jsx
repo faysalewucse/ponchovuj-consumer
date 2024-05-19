@@ -11,7 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaSquareFacebook } from "react-icons/fa6";
 import Link from "next/link";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   return (
     <div className="flex justify-center py-20">
       <Image
@@ -26,8 +26,39 @@ const LoginPage = () => {
           <h1 className="font-semibold text-3xl text-dark-1">
             Welcome to {siteName}
           </h1>
-          <p className="mb-5">Please Sign in to your account</p>
+          <p className="mb-5">Please fill up the form to signup</p>
+          <div className="flex flex-col gap-5">
+            <TextFieldWithLabel
+              label={"Full Name"}
+              placeholder={"Enter Full Name"}
+            />
+            <TextFieldWithLabel
+              label={"Email"}
+              placeholder={"Enter your valid email address"}
+              type="email"
+            />
+            <TextFieldWithLabel
+              label={"Password"}
+              placeholder={"Enter password"}
+              type="password"
+            />
+            <TextFieldWithLabel
+              label={"Confirm Password"}
+              placeholder={"Confirm password"}
+              type="password"
+            />
+          </div>
 
+          <PrimaryButton
+            label={"SIGN IN"}
+            loading={false}
+            extraClass={"mt-10 mb-5"}
+          />
+          <div className="mb-5 flex gap-5 items-center">
+            <hr className="flex-1" />
+            or sign in with
+            <hr className="flex-1" />
+          </div>
           <div className="flex justify-center gap-5 my-5">
             <SocialLoginButton
               text={"Sign in with Google"}
@@ -38,42 +69,13 @@ const LoginPage = () => {
               icon={<FaSquareFacebook />}
             />
           </div>
-          <div className="mb-5 flex gap-5 items-center">
-            <hr className="flex-1" />
-            or sign in with
-            <hr className="flex-1" />
-          </div>
-          <div className="flex flex-col gap-5">
-            <TextFieldWithLabel
-              label={"Email"}
-              placeholder={"Enter your email address"}
-              numberField={true}
-            />
-            <TextFieldWithLabel
-              label={"Password"}
-              placeholder={"Enter password"}
-              passwordField={true}
-            />
-          </div>
-          <div className="flex justify-between mt-5">
-            <fieldset className="flex items-center gap-2">
-              <Checkbox checked={false} id="checkbox" />
-              <Label htmlFor="checkbox">Keep me logged in</Label>
-            </fieldset>
-            <p className="text-sm text-primary underline">Forgot Password?</p>
-          </div>
-          <PrimaryButton
-            label={"SIGN IN"}
-            loading={false}
-            extraClass={"mt-10 mb-5"}
-          />
           <p className="text-center">
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <Link
-              href="/signup"
+              href="/login"
               className="text-primary font-medium cursor-pointer"
             >
-              Sign Up
+              Sign In
             </Link>
           </p>
         </div>
@@ -82,4 +84,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

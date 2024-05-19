@@ -5,12 +5,7 @@ import { useState } from "react";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoMdEye } from "react-icons/io";
 
-const TextFieldWithLabel = ({
-  label,
-  placeholder,
-  passwordField = false,
-  numberField = false,
-}) => {
+const TextFieldWithLabel = ({ label, placeholder, type = "text" }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -25,7 +20,7 @@ const TextFieldWithLabel = ({
       color="default"
       className="border rounded-sm"
       endContent={
-        passwordField && (
+        type === "password" && (
           <button
             className="focus:outline-none"
             type="button"
@@ -39,13 +34,7 @@ const TextFieldWithLabel = ({
           </button>
         )
       }
-      type={
-        passwordField && !isVisible
-          ? "password"
-          : numberField
-          ? "number"
-          : "text"
-      }
+      type={type}
     />
   );
 };
