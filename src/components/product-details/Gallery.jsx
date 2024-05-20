@@ -12,6 +12,14 @@ import "swiper/css/thumbs";
 
 export const Gallery = ({ galleryImages }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [transformOrigin, setTransformOrigin] = useState("center center");
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setTransformOrigin(`${x}% ${y}%`);
+  };
 
   return (
     <div className="">
@@ -30,9 +38,17 @@ export const Gallery = ({ galleryImages }) => {
           <SwiperSlide
             key={images.image}
             style={{ height: "500px", objectFit: "cover" }}
-            className="w-auto"
+            className="w-full overflow-hidden"
+            onMouseMove={handleMouseMove}
           >
-            <img src={images.url} alt={`Image ${images.image}`} />
+            <img
+              src={images.url}
+              alt={`Image ${images.image}`}
+              className="w-full h-full mx-auto transition-300 scale-100 hover:scale-150 cursor-zoom-in"
+              style={{ transformOrigin }}
+              onMouseMoveCapture={handleMouseMove}
+              onMouseLeave={() => setTransformOrigin("center", "center")}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
