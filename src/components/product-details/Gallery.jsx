@@ -2,7 +2,12 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight, FaExpand } from "react-icons/fa6";
+import Lightbox from "yet-another-react-lightbox";
+import Counter from "yet-another-react-lightbox/plugins/counter";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+// import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 
 //swiper js styles
 import "swiper/css";
@@ -10,9 +15,16 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
+// Lightbox styles
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/counter.css";
+// import "yet-another-react-lightbox/plugins/thumbnails.css";
+
 export const Gallery = ({ galleryImages }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [transformOrigin, setTransformOrigin] = useState("center center");
+  const [openLightbox, setOpenLightBox] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
@@ -22,7 +34,25 @@ export const Gallery = ({ galleryImages }) => {
   };
 
   return (
-    <div className="">
+    <div className="relative">
+      <Lightbox
+        open={openLightbox}
+        close={() => setOpenLightBox(false)}
+        index={activeIndex}
+        slides={galleryImages}
+        plugins={[Counter, Slideshow, Zoom]}
+        controller={{
+          closeOnBackdropClick: true,
+          closeOnPullDown: true,
+          closeOnPullUp: true,
+        }}
+        // thumbnails={{
+        //   position: "end",
+        //   border: 0,
+        //   showToggle: true,
+        //   imageFit: "cover",
+        // }}
+      />
       <Swiper
         spaceBetween={10}
         navigation={{
@@ -32,6 +62,7 @@ export const Gallery = ({ galleryImages }) => {
         loop={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         className="mySwiper2 mb-4"
       >
         {galleryImages.map((images) => (
@@ -42,7 +73,7 @@ export const Gallery = ({ galleryImages }) => {
             onMouseMove={handleMouseMove}
           >
             <img
-              src={images.url}
+              src={images.src}
               alt={`Image ${images.image}`}
               className="w-full h-full mx-auto transition-300 scale-100 hover:scale-150 cursor-zoom-in"
               style={{ transformOrigin }}
@@ -52,6 +83,12 @@ export const Gallery = ({ galleryImages }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <button
+        onClick={() => setOpenLightBox(true)}
+        className="absolute top-2 left-2 z-50"
+      >
+        <FaExpand size={30} className="hover:text-primary transition-300" />
+      </button>
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
@@ -73,7 +110,7 @@ export const Gallery = ({ galleryImages }) => {
             key={images.image}
             style={{ width: "135px", height: "135px", objectFit: "cover" }}
           >
-            <img src={images.url} alt={`Thumbnail ${images.image}`} />
+            <img src={images.src} alt={`Thumbnail ${images.image}`} />
           </SwiperSlide>
         ))}
       </Swiper>
